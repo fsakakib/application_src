@@ -1,13 +1,13 @@
 pipeline {
   agent any
   environment {
-    AWS_ACCOUNT_ID = '861930681553'
+    AWS_ACCOUNT_ID = '765427072911'
     AWS_REGION = 'eu-west-1'
-    AWS_CA_DOMAIN = 'my-domain'
+    AWS_CA_DOMAIN = 'pypi'
     AWS_CA_REPO = 'my-repository'
-    AWS_STACK_NAME = 'Consumer'
+    AWS_STACK_NAME = 'CodeArtifactApplication'
     CONTAINER_NAME = 'application'
-    CREDENTIALS_ID = 'AWS'
+    CREDENTIALS_ID = 'CodeArtifactUser'
   }
   stages {
 

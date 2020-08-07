@@ -3,12 +3,15 @@ Parameters:
   VPC:
     Description: Fargate will launch tasks in this VPC
     Type: AWS::EC2::VPC::Id
+    Default: 'vpc-164cad6f'
   SubnetA:
     Description: Subnet from the VPC
     Type: AWS::EC2::Subnet::Id
+    Default: 'subnet-2d5a7765'
   SubnetB:
     Description: Subnet from the VPC
     Type: AWS::EC2::Subnet::Id
+    Default: 'subnet-45b4e623'
   ApplicationName:
     Type: String
     Default: application
