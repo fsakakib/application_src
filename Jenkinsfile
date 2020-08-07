@@ -15,7 +15,7 @@ pipeline {
       steps {
         sh "aws configure set region ${AWS_REGION}"
         sh "aws --version"
-        sh "docker version"
+        sh "sudo docker version"
       }
     }
 
@@ -46,7 +46,7 @@ pipeline {
           echo "Running docker build..."
           sh ("""
             set +x
-            docker build -t $CONTAINER_NAME:$BUILD_NUMBER \
+            sudo docker build -t $CONTAINER_NAME:$BUILD_NUMBER \
             --build-arg CODEARTIFACT_TOKEN='$authToken' \
             --build-arg DOMAIN=$AWS_CA_DOMAIN-$AWS_ACCOUNT_ID \
             --build-arg REGION=$AWS_REGION \
@@ -82,7 +82,7 @@ pipeline {
                 //Retrieve the Amazon ECR authenthication token, and use it to configure the Docker daemon
                 sh """
                   aws ecr get-login-password \
-                  | docker login \
+                  | sudo docker login \
                   --username AWS \
                   --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
                   """
